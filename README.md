@@ -148,7 +148,7 @@ All output should be displayed on the page, not printed to the console.
 
 ## Deadline
 
-Your Canvas submission is due at or before 11:59pm on TBD.
+Your Canvas submission is due at or before 11:59pm on Monday, December 3, 2018.
 
 ### Submission Requirements
 
