@@ -6,7 +6,7 @@ function mario() {
   let height = -1;
 
   while (height < 1 || height > 23) {
-    height = prompt("Height: ");
+    height = Number(prompt("Height: "));
 
     if (height === null) {
       break;
@@ -22,11 +22,11 @@ function mario() {
     let space = "&nbsp;";
     let block = "#";
 
-    for (let i = 0; i < height; i++) {
-      for (let j = 0; j < height - (i + 1); j++) {
+    for (let row = 1; row <= height; row++) {
+      for (let i = 0; i < height - row; i++) {
         output = output + space;
       }
-      for (let k = 0; k < i + 2; k++) {
+      for (let j = 0; j < row + 1; j++) {
         output = output + block;
       }
       output = output + "<br>";
@@ -48,13 +48,15 @@ function mario() {
 function marioAgain() {
   let height = -1;
 
-  while (!Number.isInteger(height) || (height < 1 || height > 23)) {
-    height = prompt("Height: ");
+  while (height < 1 || height > 23) {
+    height = Number(prompt("Height: "));
 
     if (height === null) {
       break;
-    } else {
-      height = Number(height);
+    } else if (Number.isNaN(height)) {
+      height = -1;
+    } else if (!Number.isInteger(height)) {
+      height = -1;
     }
   }
 
@@ -63,16 +65,16 @@ function marioAgain() {
     let space = "&nbsp;";
     let block = "#";
 
-    for (let i = 0; i < height; i++) {
-      for (let j = 0; j < height - (i + 1); j++) {
+    for (let row = 1; row <= height; row++) {
+      for (let i = 0; i < height - row; i++) {
         output = output + space;
       }
-      for (let k = 0; k < i + 2; k++) {
+      for (let j = 0; j < row + 1; j++) {
         output = output + block;
       }
       output = output + space + space;
 
-      for (let l = 0; l < i + 2; l++) {
+      for (let k = 0; k < row + 1; k++) {
         output = output + block;
       }
       output = output + "<br>";
@@ -95,12 +97,10 @@ function credit() {
   let card = "invalid";
 
   while (!Number.isInteger(card)) {
-    card = prompt("Card Number: ");
+    card = Number(prompt("Card Number: "));
 
     if (card === null) {
       break;
-    } else {
-      card = Number(card);
     }
   }
 
